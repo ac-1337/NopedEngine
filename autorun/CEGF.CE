@@ -1,0 +1,2197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="28">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Master"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[enable]
+		alloc(rndgencode,2048)
+		label(rndgen)
+		registersymbol(rndgen)
+        alloc(GetOffset, 32)
+		registersymbol(GetOffset)
+        label(MasterOffset)
+        registersymbol(MasterOffset)
+        label(PerfectShotOffset)
+        registersymbol(PerfectShotOffset)
+		label(FullAccOffset)
+		registersymbol(FullAccOffset)
+		label(WindBaseOffset)
+		registersymbol(WindBaseOffset)
+		label(CurrentElevationOffset)
+		registersymbol(CurrentElevationOffset)
+		label(AimingElevOffset)
+		registersymbol(AimingElevOffset)
+		label(WindMoveOffset)
+		registersymbol(WindMoveOffset)
+		alloc(SetMasterCode, 2048)
+		registersymbol(SetMasterCode)
+
+		aobscan(SetMasterOrig, 89 82 ?? ?? ?? ?? 8B 82 ?? ?? ?? ?? 83 F8 00 0F 8F)
+		registersymbol(SetMasterOrig)
+        label(SetMasterOrigReturn)
+
+		registersymbol(Master)
+		
+		aobscan(KillWindMoveOrig, F3 0F 10 90 ???????? 50 B8 ???????? 66 0F 6E D8 58 C5 EA 59 D3 F3 0F 11 4D D8)
+		registersymbol(KillWindMoveOrig)
+		label(KillWindMoveOrigReturn)
+		
+		registersymbol(KillWindMoveTrigger)
+
+        aobscan(PerfectShotOrig, 89 96 ?? ?? ?? ?? 3B C1 0F 83 ?? ?? ?? ?? 8B 44 30 2C 89 86 ?? ?? ?? ?? FF 75 E8 33 DB 89 FE 8B 45 F4 8B 55 F0 8B 4D EC E8 ?? ?? ?? ?? 8B 75 F8 B8 ?? ?? ?? ?? E8 ?? ?? ?? ?? 89 EC 5D C3)
+        registersymbol(PerfectShotOrig)
+        label(PerfectShotOrigReturn)
+
+		registersymbol(MultDataAddress)
+
+		registersymbol(PerfectShotTrigger)
+
+		aobscan(LongLineOrig1, 8B 7C 1F 34 8B 4D EC 83 E9 2F 03 D6 89 BB ?? ?? ?? ?? 3B D1 0F 83 ?? ?? ?? ?? 6B 4D E8 48 8B 54 1A 2C 8B 7D EC 83 EF 2B 03 CE 89 93 ?? ?? ?? ?? 3B CF 0F 83 ?? ?? ?? ?? 6B 55 E8 48 8B 4C 19 28)
+        registersymbol(LongLineOrig1)
+        label(LongLineOrig1Return)
+ 
+        aobscan(LongLineOrig2, F3 0F 10 4C 1A 34 F3 0F 11 55 DC F3 0F 11 A5 ?? ?? ?? ?? F3 0F 11 AD)
+        registersymbol(LongLineOrig2)
+        label(LongLineOrig2Return)
+		
+		registersymbol(ClubDataAddress)
+
+		registersymbol(LongLineTrigger)
+		
+		aobscan(AccOrig1, 8B 5C 13 08 6B 75 C0 34 8B BA ?? ?? ?? ?? 89 C8 83 E8 1B 03 F7 89 5D C4 6B 5D C0 34 3B F0 0F 83 ?? ?? ?? ?? 83 E9 1F 8D 04 1F F3 0F 10 4C 16 18 3B C1 0F 83 ?? ?? ?? ?? F3 0F 2A 55 C4 F3 0F 10)
+		registersymbol(AccOrig1)
+		label(AccOrig1Return)
+
+		aobscan(AccOrig2, F3 0F 11 8B ?? ?? ?? ?? 8B B3 ?? ?? ?? ?? 6B 7D E8 48 89 55 EC 83 EA 37 03 FE 3B FA 0F 83 ?? ?? ?? ?? 6B 55 E8 48 ?? ?? ?? ?? ?? ?? ?? 83 E9 2F 03 D6 89 BB ?? ?? ?? ?? 3B D1 0F 83)
+		registersymbol(AccOrig2)
+		label(AccOrig2Return)
+
+		registersymbol(WantedAccValue)
+		
+		registersymbol(WantedAccMult)
+
+		registersymbol(FullAccuracyTrigger)
+
+		aobscan(SetWindBaseOrig, F3 0F 11 88 ?? ?? ?? ?? B8 ?? ?? ?? ?? E8 ?? ?? ?? ?? 8B 4D F8 B8 ?? ?? ?? ?? 89 08 89 EC 5D C3 ?? ?? ?? ?? ?? F3 0F 10)
+        registersymbol(SetWindBaseOrig)
+        label(SetWindBaseOrigReturn)
+
+		aobscan(SetAimDistOrig, F3 0F 11 1C 3A 50 B8 ?? ?? ?? ?? 66 0F 6E E8 58 0F 2E EA 0F 97 C3 0F B6 DB 83 FB 00 0F 84 ?? ?? ?? ?? F3 0F 10 5D E0 83 FB 00 0F 84 ?? ?? ?? ?? 50 B8 ?? ?? ?? ?? 66 0F 6E C8 58 8B 5D C0 83 C3)
+        registersymbol(SetAimDistOrig)
+        label(SetAimDistOrigReturn)
+
+		aobscan(CurrentElevationOrig, 8B 80 ???????? 89 9D ???????? 89 BD ???????? 89 85 ???????? 89 CE B8 ???????? BA ???????? E8 ???????? 8B 75 F4 B8 ???????? E8 ???????? 8B 4D F4)
+		registersymbol(CurrentElevationOrig)
+		label(CurrentElevationOrigReturn)
+
+		aobscan(AimingElevationOrig, 8B 86 ?? ?? ?? ?? 8B 55 EC 83 EA 33 89 86)
+		registersymbol(AimingElevationOrig)
+		label(AimingElevationOrigReturn)
+		
+		registersymbol(WindCalc)
+		
+		registersymbol(CurrentAim)
+		registersymbol(MaxAim)
+		registersymbol(AimMult)
+		registersymbol(WindBase)
+		registersymbol(WindMult)
+		registersymbol(RealWind)		
+		registersymbol(WindRings)
+		registersymbol(WindBaseAddress)
+		registersymbol(Multiplier)
+		registersymbol(CurrentElevation)
+		registersymbol(AimingElevation)
+		registersymbol(GapElevation)
+		registersymbol(WindRings2)
+		
+		registersymbol(WindZeroFive)
+		registersymbol(WindFiveTen)
+		registersymbol(WindTenFifteen)
+		registersymbol(WindFifteenMore)
+		registersymbol(WindTest)
+
+		registersymbol(WindRingTrigger)
+
+		////
+
+		GetOffset:
+		db 00 40 20 80
+
+		MasterOffset:
+		readmem(SetMasterOrig+2, 4)
+
+		PerfectShotOffset:
+		readmem(PerfectShotOrig+2, 4)
+
+		FullAccOffset:
+		readmem(AccOrig2+4, 4)
+
+		WindBaseOffset:
+		readmem(SetWindBaseOrig+4, 4)
+		
+		CurrentElevationOffset:
+		readmem(CurrentElevationOrig+2, 4)
+		
+		AimingElevOffset:
+		readmem(AimingElevationOrig+2, 4)
+		
+		WindMoveOffset:
+		readmem(KillWindMoveOrig+4, 4)
+
+		////
+
+		SetMasterOrig:
+        jmp SetMasterCode
+        nop
+        SetMasterOrigReturn:
+		
+		KillWindMoveOrig:
+		jmp KillWindMoveCode
+		nop
+		nop
+		nop
+		KillWindMoveOrigReturn:
+
+        PerfectShotOrig:
+        jmp PerfectShotCode
+        nop
+        PerfectShotOrigReturn:
+
+		LongLineOrig1:
+        jmp LongLineCode1
+        nop
+        nop
+        LongLineOrig1Return:
+
+        LongLineOrig2:
+        jmp LongLineCode2
+        nop
+        LongLineOrig2Return:
+
+		AccOrig1:
+		jmp AccCode1
+		nop
+		nop
+		nop
+		AccOrig1Return:
+ 
+		AccOrig2:
+		jmp AccCode2
+		nop
+		nop
+		nop
+		AccOrig2Return:
+		
+		SetAimDistOrig:
+        jmp WindCalc
+        SetAimDistOrigReturn:
+ 
+        SetWindBaseOrig:
+        jmp StoreWindBase
+        nop
+        nop
+        nop
+        SetWindBaseOrigReturn:
+ 
+		CurrentElevationOrig:
+		nop
+		jmp CurrentElevationCode
+		CurrentElevationOrigReturn:
+			
+		AimingElevationOrig:
+		jmp AimingElevationCode
+		nop
+		AimingElevationOrigReturn:
+		
+		////
+
+        SetMasterCode:
+		add edx,[MasterOffset]
+        mov [edx],ebx
+		sub edx,[MasterOffset]
+        mov [Master],ebx
+        jmp SetMasterOrigReturn
+
+        Master:
+        dd (int)0
+		
+		////
+		
+		KillWindMoveCode:
+		cmp [Master],(int)1
+        jne DontKillWindMove
+		cmp [KillWindMoveTrigger],(int)1
+		jne DontKillWindMove
+		pxor xmm2,xmm2
+		jmp KillWindMoveOrigReturn
+		
+		DontKillWindMove:
+		add eax,[WindMoveOffset]
+		movss xmm2,[eax]
+		sub eax,[WindMoveOffset]
+		jmp KillWindMoveOrigReturn
+		
+		KillWindMoveTrigger:
+		dd (int)0
+		
+		////
+
+        PerfectShotCode:
+        cmp [Master],(int)1
+        jne DontPerfectShot
+		add esi,[PerfectShotOffset]
+		mov [MultDataAddress],esi
+		sub esi,[PerfectShotOffset]
+		cmp [PerfectShotTrigger],(int)1
+		jne DontPerfectShot
+		add esi,[PerfectShotOffset]
+        mov [esi],(float)0
+		sub esi,[PerfectShotOffset]
+        jmp PerfectShotOrigReturn
+
+        DontPerfectShot:
+		add esi,[PerfectShotOffset]
+        mov [esi],edx
+		sub esi,[PerfectShotOffset]
+        jmp PerfectShotOrigReturn
+
+        MultDataAddress:
+        db 00 00 00 00
+
+        PerfectShotTrigger:
+		dd (int)0
+		
+		////
+		
+		LongLineCode1:
+		add edi,ebx
+        mov [ClubDataAddress],edi
+        sub edi,ebx
+		cmp [Master],(int)1
+		jne DontLongLine1	   
+        cmp [LongLineTrigger],(int)1
+        jne DontLongLine1
+        mov edi,[WantedLineLength]
+        mov ecx,[ebp-14]
+        jmp LongLineOrig1Return
+ 
+        DontLongLine1:
+        mov edi,[edi+ebx+34]
+        mov ecx,[ebp-14]
+        jmp LongLineOrig1Return
+		
+		////
+		
+		LongLineCode2:
+        add edx,ebx
+        mov [ClubDataAddress],edx
+        sub edx,ebx
+		cmp [Master],(int)1
+		jne DontLongLine2
+		cmp [LongLineTrigger],(int)1
+        jne DontLongLine2
+        movss xmm1,[WantedLineLength]
+        jmp LongLineOrig2Return
+ 
+		DontLongLine2:
+        movss xmm1,[edx+ebx+34]
+        jmp LongLineOrig2Return
+		
+		ClubDataAddress:
+        dd (int)0
+		
+		WantedLineLength:
+        dd (float)10
+		
+		LongLineTrigger:
+		dd (int)0
+		
+		////
+		
+		AccCode1:
+		cmp [Master],(int)1
+		jne DontAccCode1
+		cmp [FullAccuracyTrigger],(int)1
+		jne DontAccCode1
+		mov ebx,[WantedAccValue]
+		imul esi,[ebp-40],34
+		jmp AccOrig1Return
+ 
+		DontAccCode1:
+		mov ebx,[ebx+edx+08]
+		imul esi,[ebp-40],34
+		jmp AccOrig1Return
+ 
+		////
+ 
+		AccCode2:
+		cmp [Master],(int)1
+		jne DontAccCode2
+		cmp [FullAccuracyTrigger],(int)1
+		jne DontAccCode2
+		push eax
+		mov eax,[WantedAccMult]
+		add ebx,[FullAccOffset]
+		mov [ebx],eax
+		sub ebx,[FullAccOffset]
+		pop eax
+		jmp AccOrig2Return
+ 
+		DontAccCode2:
+		add ebx,[FullAccOffset]
+		movss [ebx],xmm1
+		sub ebx,[FullAccOffset]
+		jmp AccOrig2Return
+		
+		WantedAccValue:
+		dd (int)100
+ 
+		WantedAccMult:
+		dd (float)1
+		
+		FullAccuracyTrigger:
+		dd (int)0
+		
+		////
+		
+		WindCalc:
+        movss [edx+edi],xmm3
+ 
+        cmp [Master],(int)1
+        jne SetAimDistOrigReturn
+		cmp [WindRingTrigger],(int)1
+		jne SetAimDistOrigReturn
+        push eax
+        push ebx
+        mov ebx,[MultDataAddress]
+        cmp ebx,00000000
+        je BadPtr
+        mov eax,[ebx+18]
+        mov [WindMult],eax
+		mov ebx,[ClubDataAddress]
+        cmp ebx,00000000
+        je BadPtr
+        mov eax,[ebx+14]
+        mov [MaxAim],eax
+		mov ebx,[WindBaseAddress]
+        cmp ebx,00000000
+        je BadPtr
+        mov eax,[ebx]
+        mov [WindBase],eax
+        mov eax,[ebx+170]
+        mov [CurrentAim],eax
+ 
+        BadPtr:
+        movss [Storage0],xmm0
+        movss [Storage1],xmm1
+        movss xmm0,[CurrentAim]
+        movss xmm1,[MaxAim]
+        divss xmm0,xmm1
+        movss [AimMult],xmm0
+        movss xmm0,[WindBase]
+        movss xmm1,[WindMult]
+        mulss xmm0,xmm1
+        movss [RealWind],xmm0
+        movss xmm0,[AimMult]
+        movss xmm1,[RealWind]
+        mulss xmm0,xmm1
+		mov eax,[ClubDataAddress]
+		mov [Multiplier],(float)1
+		cmp [eax],(int)41
+		jl +24
+		cmp [eax],(int)57
+		jnl +1C
+		mov [Multiplier],(float)0.5
+		cmp [eax],(int)49
+		jl +A
+        mov [Multiplier],(float)0.75
+		mulss xmm0,[Multiplier]
+		movss [WindRings],xmm0
+		movss xmm0,[AimingElevation]
+		movss xmm1,[CurrentElevation]
+		subss xmm1,xmm0
+		movss [GapElevation],xmm1
+		movss xmm0,[RealWind]
+		mov [WindTest],(float)5
+		ucomiss xmm0,[WindTest]
+		jae +C
+		mov eax,[WindZeroFive]
+        mov [Multiplier],eax
+		jmp +48
+		mov [WindTest],(float)10
+		ucomiss xmm0,[WindTest]
+		jae +C
+		mov eax,[WindFiveTen]
+		mov [Multiplier],eax
+		jmp +29
+		mov [WindTest],(float)15
+		ucomiss xmm0,[WindTest]
+		jae +C
+		mov eax,[WindTenFifteen]
+		mov [Multiplier],eax
+		jmp +A
+		mov eax,[WindFifteenMore]
+		mov [Multiplier],eax
+		mulss xmm1,[Multiplier]
+        movss xmm0,[WindRings]
+		mulss xmm1,xmm0
+		addss xmm1,xmm0
+		movss [WindRings2],xmm1
+        pop ebx
+        pop eax			
+        movss xmm1,[Storage1]
+        movss xmm0,[Storage0]
+        jmp SetAimDistOrigReturn
+		
+		WindZeroFive:
+		dd (float)0.012050
+		
+		WindFiveTen:
+		dd (float)0.0135
+		
+		WindTenFifteen:
+		dd (float)0.01875
+		
+		WindFifteenMore:
+		dd (float)0.019
+		
+		WindTest:
+        dd (float)0
+ 
+        ////
+		
+		StoreWindBase:
+		add eax,[WindBaseOffset]
+        movss [eax],xmm1
+        mov [WindBaseAddress],eax
+        sub eax,[WindBaseOffset]
+        jmp SetWindBaseOrigReturn
+
+		////
+
+		CurrentElevationCode:
+		push ecx
+		mov ecx,eax
+		add ecx,[CurrentElevationOffset]
+		mov eax,[ecx]
+		pop ecx
+        mov [CurrentElevation],eax
+		jmp CurrentElevationOrigReturn
+
+		////
+			
+		AimingElevationCode:
+		add esi,[AimingElevOffset]
+		mov eax,[esi]
+		sub esi,[AimingElevOffset]
+		mov [AimingElevation],eax
+		jmp AimingElevationOrigReturn
+
+		CurrentAim:
+        dd 00000000
+ 
+        MaxAim:
+        dd 00000000
+ 
+		AimMult:
+        dd 00000000
+ 
+		WindBase:
+		dd 00000000
+		
+        WindMult:
+        dd 00000000
+		
+		RealWind:
+        dd 00000000
+ 
+        WindRings:
+        dd 00000000
+			
+		Multiplier:
+		dd 00000000
+ 
+		WindBaseAddress:
+        dd 00000000
+
+        Storage0:
+        dd 00000000
+ 
+        Storage1:
+        dd 00000000
+
+		CurrentElevation:
+		dd 00000000
+
+		AimingElevation:
+		dd 00000000
+			
+		GapElevation:
+		dd 00000000
+			
+		WindRings2:
+		dd 00000000
+		
+		WindRingTrigger:
+		dd (int)0
+
+		// Random generator code by julfo
+
+		alloc(rndvars,2048)
+
+		label(rnd_a)
+		registersymbol(rnd_a)
+		label(rnd_c)
+		registersymbol(rnd_c)
+		label(rnd_m)
+		registersymbol(rnd_m)
+		label(rnd_d)
+		registersymbol(rnd_d)
+		label(rnd_xmm)
+		registersymbol(rnd_xmm)
+		label(rnd_counter)
+		registersymbol(rnd_counter)
+		label(gt)
+
+		rndvars:
+		rnd_a:
+		dd (int)1103515245
+		rnd_c:
+		dd (int)12345
+		rnd_m:
+		dd (int)4294967295
+		rnd_d:
+		dd (int)54321
+		rnd_xmm:
+		dd (float)0.0
+		rnd_counter:
+		dd (int)0
+
+    
+		rndgen:
+		
+		// only change every x frames
+		push eax
+		mov eax,[rnd_counter]
+		cmp eax,#100
+		jge gt
+
+		inc eax
+		mov [rnd_counter], eax
+		pop eax
+		movss xmm0, dword ptr [rnd_xmm]
+		ret
+
+		gt:
+		mov [rnd_counter], 0
+		pop eax
+		
+		// func start
+		push ebp
+		mov ebp, esp
+		sub esp, 16
+		mov edx, dword ptr [rnd_a]
+		mov eax, dword ptr [rnd_d]
+		imul edx, eax
+		mov eax, dword ptr [rnd_c]
+		add eax, edx
+		mov ecx, dword ptr [rnd_m]
+		mov edx, 0
+		div ecx
+		mov eax, edx
+		mov dword ptr [rnd_d], eax
+		mov eax, dword ptr [rnd_d]
+		mov dword ptr [ebp-16], eax
+		mov dword ptr [ebp-12], 0
+		fild qword ptr [ebp-16]
+		fstp dword ptr [ebp-4]
+		fld dword ptr [ebp-4]
+		mov eax, dword ptr [rnd_m]
+		mov dword ptr [ebp-16], eax
+		mov dword ptr [ebp-12], 0
+		fild qword ptr [ebp-16]
+		fstp dword ptr [ebp-4]
+		fld dword ptr [ebp-4]
+		fdivp st(1), st
+		fstp dword ptr [rnd_xmm]
+		movss xmm0, dword ptr [rnd_xmm]
+		leave
+		ret
+
+        [disable]
+		dealloc(GetOffset)
+		unregistersymbol(GetOffset)
+		dealloc(SetMasterCode)
+		unregistersymbol(SetMasterCode)
+		unregistersymbol(MasterOffset)
+        unregistersymbol(PerfectShotOffset)
+		unregistersymbol(FullAccOffset)
+		unregistersymbol(WindBaseOffset)
+		unregistersymbol(AimingElevOffset)
+		unregistersymbol(WindMoveOffset)
+        unregistersymbol(Master)
+        unregistersymbol(MultDataAddress)
+        unregistersymbol(PerfectShotTrigger)
+		unregistersymbol(SetMasterOrig)
+		unregistersymbol(KillWindMoveOrig)
+		unregistersymbol(KillWindMoveTrigger)
+		unregistersymbol(LongLineOrig1)
+		unregistersymbol(LongLineOrig2)
+		unregistersymbol(ClubDataAddress)
+		unregistersymbol(LongLineTrigger)
+		unregistersymbol(AccOrig1)
+        unregistersymbol(AccOrig2)
+		unregistersymbol(WantedAccValue)
+		unregistersymbol(WantedAccMult)
+		unregistersymbol(FullAccuracyTrigger)
+		unregistersymbol(WindCalc)
+        unregistersymbol(SetAimDistOrig)
+        unregistersymbol(SetWindBaseOrig)
+        unregistersymbol(CurrentAim)
+        unregistersymbol(MaxAim)
+        unregistersymbol(AimMult)
+		unregistersymbol(WindBase)
+        unregistersymbol(WindMult)
+		unregistersymbol(RealWind)
+        unregistersymbol(WindRings)
+		unregistersymbol(WindBaseAddress)
+		unregistersymbol(Multiplier)
+		unregistersymbol(CurrentElevationOrig)
+		unregistersymbol(CurrentElevation)
+		unregistersymbol(AimingElevationOrig)
+		unregistersymbol(AimingElevation)
+		unregistersymbol(GapElevation)
+		unregistersymbol(WindRings2)
+		unregistersymbol(WindZeroFive)
+		unregistersymbol(WindFiveTen)
+		unregistersymbol(WindTenFifteen)
+		unregistersymbol(WindFifteenMore)
+		unregistersymbol(WindTest)
+		unregistersymbol(WindRingTrigger)
+		dealloc(rndvars)
+		dealloc(rndgencode)
+		unregistersymbol(rnd_a)
+		unregistersymbol(rnd_c)
+		unregistersymbol(rnd_m)
+		unregistersymbol(rnd_d)
+		unregistersymbol(rndgen)
+		unregistersymbol(rnd_counter)
+
+		SetMasterOrig:
+		//mov [edx+0056FA80],ebx
+		db 89 9A
+        readmem(MasterOffset, 4)
+		
+		KillWindMoveOrig:
+		//movss xmm2,[eax+005C26EC]
+		db F3 0F 10 90
+		readmem(WindMoveOffset, 4)
+		
+		PerfectShotOrig:
+		//mov [esi+005B4080],edx
+		db 89 96
+		readmem(PerfectShotOffset, 4)
+		
+		LongLineOrig1:
+		//mov edi,[edi+ebx+34]
+		//mov ecx,[ebp-14]
+		db 8B 7C 1F 34 8B 4D EC
+
+		LongLineOrig2:
+		//movss xmm1,[edx+ebx+34]
+		db F3 0F 10 4C 1A 34
+		
+		AccOrig1:
+		//mov ebx,[ebx+edx+08]
+		//imul esi,[ebp-40],34
+		db 8B 5C 13 08 6B 75 C0 34
+ 
+		AccOrig2:
+		//movss [ebx+005B409C],xmm1
+		db F3 0F 11 8B 
+		readmem(FullAccOffset, 4)
+		
+		SetWindBaseOrig:
+		//movss [eax+0056FA0C],xmm1	
+		db F3 0F 11 88
+		readmem(WindBaseOffset, 4)
+
+		SetAimDistOrig:
+		// movss [edx+edi],xmm3
+		db F3 0F 11 1C 3A
+
+		CurrentElevationOrig:
+		//mov eax,[eax+00160C34]
+		db 8B 80
+		readmem(CurrentElevationOffset, 4)
+
+		AimingElevationOrig:
+		//mov eax,[esi+0056C428]
+		db 8B 86
+		readmem(AimingElevOffset, 4)
+	  	</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"Master (Debug)"</Description>
+          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:HACK OFF
+			1:HACK ON
+          </DropDownList>
+          <LastState Value="1" RealAddress="088F0831"/>
+          <Color>FF00FF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Master</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"Debug Info"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>51</ID>
+              <Description>"Current Club Info"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>FF00FF</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>101</ID>
+                  <Description>"Club Number"</Description>
+                  <LastState Value="57" RealAddress="874380D8"/>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>0</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>102</ID>
+                  <Description>"Club Level"</Description>
+                  <LastState Value="1" RealAddress="874380DC"/>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>4</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>103</ID>
+                  <Description>"Accuracy"</Description>
+                  <LastState Value="30" RealAddress="874380E0"/>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>104</ID>
+                  <Description>"???????"</Description>
+                  <LastState Value="0" RealAddress="874380E4"/>
+                  <VariableType>Float</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>C</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>105</ID>
+                  <Description>"???????"</Description>
+                  <LastState Value="0" RealAddress="874380E8"/>
+                  <VariableType>Float</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>10</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>106</ID>
+                  <Description>"Power"</Description>
+                  <LastState Value="20" RealAddress="874380EC"/>
+                  <VariableType>Float</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>14</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>107</ID>
+                  <Description>"??????"</Description>
+                  <LastState Value="7" RealAddress="874380F0"/>
+                  <VariableType>Float</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>18</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>108</ID>
+                  <Description>"NormalNeedleRange"</Description>
+                  <LastState Value="20" RealAddress="874380F4"/>
+                  <VariableType>Float</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>1C</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>109</ID>
+                  <Description>"HighNeedleRange"</Description>
+                  <LastState Value="50" RealAddress="874380F8"/>
+                  <VariableType>Float</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>20</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>110</ID>
+                  <Description>"??????"</Description>
+                  <LastState Value="0.200000003" RealAddress="874380FC"/>
+                  <VariableType>Float</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>24</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>111</ID>
+                  <Description>"Top Spin"</Description>
+                  <LastState Value="30" RealAddress="87438100"/>
+                  <VariableType>Float</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>112</ID>
+                  <Description>"Back Spin"</Description>
+                  <LastState Value="-30" RealAddress="87438104"/>
+                  <VariableType>Float</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>2C</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>113</ID>
+                  <Description>"Arrow Speed"</Description>
+                  <LastState Value="0.8999999762" RealAddress="87438108"/>
+                  <VariableType>Float</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>30</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>114</ID>
+                  <Description>"Ball Guide"</Description>
+                  <LastState Value="2" RealAddress="8743810C"/>
+                  <VariableType>Float</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>34</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>115</ID>
+                  <Description>"Ability 1"</Description>
+                  <LastState Value="0" RealAddress="87438110"/>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>38</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>116</ID>
+                  <Description>"Ability 2"</Description>
+                  <LastState Value="0" RealAddress="87438114"/>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>3C</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>117</ID>
+                  <Description>"Ability 3"</Description>
+                  <LastState Value="0" RealAddress="87438118"/>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>40</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>118</ID>
+                  <Description>"Curl"</Description>
+                  <LastState Value="100" RealAddress="8743811C"/>
+                  <VariableType>Float</VariableType>
+                  <Address>ClubDataAddress</Address>
+                  <Offsets>
+                    <Offset>44</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>52</ID>
+              <Description>"????????"</Description>
+              <LastState Value="1" RealAddress="80783E98"/>
+              <VariableType>Float</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>-8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>53</ID>
+              <Description>"Turn Timer"</Description>
+              <LastState Value="3.049997807" RealAddress="80783E9C"/>
+              <VariableType>Float</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>-4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>54</ID>
+              <Description>"Wind Base"</Description>
+              <LastState Value="1.964000225" RealAddress="80783EA0"/>
+              <VariableType>Float</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>55</ID>
+              <Description>"WindForce1base"</Description>
+              <LastState Value="0.9732209444" RealAddress="80783EA4"/>
+              <VariableType>Float</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>56</ID>
+              <Description>"WindForce3base"</Description>
+              <LastState Value="-0.2298717499" RealAddress="80783EA8"/>
+              <VariableType>Float</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>57</ID>
+              <Description>"WindForce3base"</Description>
+              <LastState Value="0" RealAddress="80783EAC"/>
+              <VariableType>Float</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>58</ID>
+              <Description>"WindForce1CurrentTour"</Description>
+              <LastState Value="1.91140604" RealAddress="80783EB0"/>
+              <VariableType>Float</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>10</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>59</ID>
+              <Description>"WindForce2CurrentTour"</Description>
+              <LastState Value="-0.4514681399" RealAddress="80783EB4"/>
+              <VariableType>Float</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>14</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>119</ID>
+              <Description>"WindForce3CurrentTour"</Description>
+              <LastState Value="0" RealAddress="80783EB8"/>
+              <VariableType>Float</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>18</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>120</ID>
+              <Description>"????????"</Description>
+              <LastState Value="1" RealAddress="80783EBC"/>
+              <VariableType>4 Bytes</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>1C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>121</ID>
+              <Description>"Nothing"</Description>
+              <VariableType>Float</VariableType>
+              <Address>4 Bytes</Address>
+              <Offsets>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>122</ID>
+              <Description>"Nothing"</Description>
+              <VariableType>Float</VariableType>
+              <Address>4 Bytes</Address>
+              <Offsets>
+                <Offset>24</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>123</ID>
+              <Description>"Nothing"</Description>
+              <VariableType>Float</VariableType>
+              <Address>4 Bytes</Address>
+              <Offsets>
+                <Offset>28</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>124</ID>
+              <Description>"????????"</Description>
+              <LastState Value="0" RealAddress="80783ECC"/>
+              <VariableType>Float</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>2C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>125</ID>
+              <Description>"????????"</Description>
+              <LastState Value="0" RealAddress="80783ED0"/>
+              <VariableType>Float</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>30</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>126</ID>
+              <Description>"????????"</Description>
+              <LastState Value="0" RealAddress="80783ED4"/>
+              <VariableType>Float</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>34</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>127</ID>
+              <Description>"????????"</Description>
+              <LastState Value="2" RealAddress="80783ED8"/>
+              <VariableType>4 Bytes</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>38</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>128</ID>
+              <Description>"????????"</Description>
+              <LastState Value="0" RealAddress="80783EDC"/>
+              <VariableType>Float</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>3C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>129</ID>
+              <Description>"????????"</Description>
+              <LastState Value="Nan" RealAddress="80783EE0"/>
+              <VariableType>Float</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>130</ID>
+              <Description>"????????"</Description>
+              <LastState Value="0" RealAddress="80783EE4"/>
+              <VariableType>4 Bytes</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>44</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>131</ID>
+              <Description>"????????"</Description>
+              <LastState Value="Nan" RealAddress="80783EE8"/>
+              <VariableType>4 Bytes</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>48</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>132</ID>
+              <Description>"????????"</Description>
+              <LastState Value="0" RealAddress="80783EEC"/>
+              <VariableType>4 Bytes</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>4C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>133</ID>
+              <Description>"Current Aim"</Description>
+              <LastState Value="5.416060925" RealAddress="80784010"/>
+              <VariableType>Float</VariableType>
+              <Address>WindBaseAddress</Address>
+              <Offsets>
+                <Offset>170</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>134</ID>
+              <Description>"Needle Speed Mult"</Description>
+              <LastState Value="1" RealAddress="807C8514"/>
+              <VariableType>Float</VariableType>
+              <Address>MultDataAddress</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>135</ID>
+              <Description>"????????"</Description>
+              <LastState Value="1" RealAddress="807C8518"/>
+              <VariableType>Float</VariableType>
+              <Address>MultDataAddress</Address>
+              <Offsets>
+                <Offset>4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>136</ID>
+              <Description>"????????"</Description>
+              <LastState Value="3.891802073" RealAddress="807C851C"/>
+              <VariableType>Float</VariableType>
+              <Address>MultDataAddress</Address>
+              <Offsets>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>137</ID>
+              <Description>"Ending Line"</Description>
+              <LastState Value="3.891782999" RealAddress="807C8520"/>
+              <VariableType>Float</VariableType>
+              <Address>MultDataAddress</Address>
+              <Offsets>
+                <Offset>C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>138</ID>
+              <Description>"????????"</Description>
+              <LastState Value="11" RealAddress="807C8524"/>
+              <VariableType>4 Bytes</VariableType>
+              <Address>MultDataAddress</Address>
+              <Offsets>
+                <Offset>10</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>139</ID>
+              <Description>"????????"</Description>
+              <LastState Value="-9.702806473" RealAddress="807C8528"/>
+              <VariableType>Float</VariableType>
+              <Address>MultDataAddress</Address>
+              <Offsets>
+                <Offset>14</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>140</ID>
+              <Description>"Wind Mult"</Description>
+              <LastState Value="1" RealAddress="807C852C"/>
+              <VariableType>Float</VariableType>
+              <Address>MultDataAddress</Address>
+              <Offsets>
+                <Offset>18</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>141</ID>
+              <Description>"Accuracy Mult"</Description>
+              <LastState Value="1" RealAddress="807C8530"/>
+              <VariableType>Float</VariableType>
+              <Address>MultDataAddress</Address>
+              <Offsets>
+                <Offset>1C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>142</ID>
+              <Description>"????????"</Description>
+              <LastState Value="10" RealAddress="807C8534"/>
+              <VariableType>Float</VariableType>
+              <Address>MultDataAddress</Address>
+              <Offsets>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>143</ID>
+              <Description>"????????"</Description>
+              <LastState Value="30" RealAddress="807C8538"/>
+              <VariableType>Float</VariableType>
+              <Address>MultDataAddress</Address>
+              <Offsets>
+                <Offset>24</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>144</ID>
+              <Description>"????????"</Description>
+              <LastState Value="-30" RealAddress="807C853C"/>
+              <VariableType>Float</VariableType>
+              <Address>MultDataAddress</Address>
+              <Offsets>
+                <Offset>28</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>145</ID>
+              <Description>"Ring Calc Info (Debug)"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>FF00FF</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>201</ID>
+                  <Description>"CurrentAim"</Description>
+                  <LastState Value="115.128273" RealAddress="088F0C0D"/>
+                  <VariableType>Float</VariableType>
+                  <Address>CurrentAim</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>202</ID>
+                  <Description>"MaxAim"</Description>
+                  <LastState Value="132.8000031" RealAddress="088F0C11"/>
+                  <VariableType>Float</VariableType>
+                  <Address>MaxAim</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>203</ID>
+                  <Description>"AimMult"</Description>
+                  <LastState Value="0.8669297695" RealAddress="088F0C15"/>
+                  <VariableType>Float</VariableType>
+                  <Address>AimMult</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>204</ID>
+                  <Description>"WindBase"</Description>
+                  <LastState Value="1.476999879" RealAddress="088F0C19"/>
+                  <VariableType>Float</VariableType>
+                  <Address>WindBase</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>205</ID>
+                  <Description>"WindMult"</Description>
+                  <LastState Value="1" RealAddress="088F0C1D"/>
+                  <VariableType>Float</VariableType>
+                  <Address>WindMult</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+		<CheatEntry>
+          <ID>13</ID>
+          <Description>"Kill This Fucking Wind Moving Arrow"</Description>
+          <LastState Activated="1"/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>
+			[enable]
+			KillWindMoveTrigger:
+			dd (int)1
+            
+            [disable]
+            KillWindMoveTrigger:
+			dd (int)0
+          </AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"Long Line"</Description>
+          <LastState Activated="1"/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>
+			[enable]
+			LongLineTrigger:
+			dd (int)1
+            
+            [disable]
+            LongLineTrigger:
+			dd (int)0
+          </AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"Perfect Shot"</Description>
+          <LastState/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>
+			[enable]
+            PerfectShotTrigger:
+			dd (int)1
+ 
+            [disable]
+            PerfectShotTrigger:
+			dd (int)0
+          </AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>15</ID>
+          <Description>"Slow Needle"</Description>
+          <LastState/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>
+			[enable]
+            alloc(SlowArrowCode, 256)
+            label(DontSlowArrow)
+ 
+            aobscan(SlowArrowOrig, F3 0F 10 64 10 30 C5 F2 58 CC 3B FB 0F 83)
+            registersymbol(SlowArrowOrig)
+            label(SlowArrowOrigReturn)
+			
+			label(WantedSpeed)
+            registersymbol(WantedSpeed)
+			
+			label(SpeedAddress)
+			registersymbol(SpeedAddress)
+            ////
+ 
+            SlowArrowOrig:
+            jmp SlowArrowCode
+			nop
+            SlowArrowOrigReturn:
+ 
+            ////
+ 
+            SlowArrowCode:
+            cmp [Master],(int)1
+            jne DontSlowArrow
+			push eax
+			mov eax,[ClubDataAddress]
+			mov [WantedSpeed],(float)0.3	//Fairway Multiplier
+			cmp [eax],(int)41				//If lower basic Rough Club
+			jl +24							//Go to Calc
+			cmp [eax],(int)57				//If not lower than Putter (for gold club)
+			jnl +1C							//Go to Calc
+			mov [WantedSpeed],(float)0.25	//Rough Multiplier
+			cmp [eax],(int)49				//If lower basic Sand Club
+			jl +A							//Go to Calc
+			mov [WantedSpeed],(float)0.2	//Sand Multiplier
+			movss xmm4,[WantedSpeed]
+			pop eax
+			add eax,edx
+			mov [SpeedAddress],eax
+			sub eax,edx
+            jmp SlowArrowOrigReturn
+ 
+            DontSlowArrow:
+			movss xmm4,[eax+edx+30]
+            jmp SlowArrowOrigReturn
+			
+			////
+			
+			WantedSpeed:
+            dd (float)1
+			
+			SpeedAddress:
+			dd (int)0
+ 
+            [disable]
+            dealloc(SlowArrowCode)
+            unregistersymbol(SlowArrowOrig)
+			unregistersymbol(WantedSpeed)
+ 
+            SlowArrowOrig:
+			//movss xmm4[eax+edx+30]
+            db F3 0F 10 64 10 30
+          </AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>206</ID>
+          <Description>"NoCurl"</Description>
+          <LastState/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>
+			[enable]
+            alloc(NoCurlCode, 128)
+            label(DontNoCurl)
+ 
+            aobscan(NoCurlOrig, F3 0F 10 54 18 44 50 B8 00 00 C8 42 66 0F 6E E0)
+            registersymbol(NoCurlOrig)
+            label(NoCurlOrigReturn)
+ 
+            ////
+ 
+            NoCurlOrig:
+            jmp NoCurlCode
+            nop
+            NoCurlOrigReturn:
+ 
+            ////
+ 
+            NoCurlCode:
+            cmp [Master],(int)1
+            jne DontNoCurl
+			movss xmm2,[CurlValue]
+            jmp NoCurlOrigReturn
+ 
+            DontNoCurl:
+            movss xmm2,[eax+ebx+44]
+            jmp NoCurlOrigReturn
+			
+			CurlValue:
+			dd (float)0
+ 
+            [disable]
+            dealloc(NoCurlCode)
+            unregistersymbol(NoCurlOrig)
+ 
+            NoCurlOrig:
+            //movss xmm2,[eax+ebx+44]
+            db F3 0F 10 54 18 44
+          </AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>207</ID>
+          <Description>"Needle Position"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="1"/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>
+			[enable]
+            alloc(NeedlePositionCode, 2048)
+            label(DontNeedlePosition)
+ 
+            aobscan(NeedlePositionOrig, 8B 34 17 8B 45 EC 3B C3 0F 83 ???????? 89 CB 83 EB 5B 89 B4 10 3C010000)
+            registersymbol(NeedlePositionOrig)
+            label(NeedlePositionOrigReturn)
+
+            label(WantedNeedle)
+			registersymbol(WantedNeedle)
+            label(WantedNeedle2)
+            registersymbol(WantedNeedle2)
+            label(rtmpxmm0)
+            registersymbol(rtmpxmm0)
+            label(rtmpxmm1)
+            registersymbol(rtmpxmm1)
+            label(rtmpxmm2)
+            registersymbol(rtmpxmm2)
+
+            label(dohook)
+            label(doslice)
+            label(perfectstart)
+            label(range1)
+            label(range2)
+            label(range3)
+            label(perfectend)
+            label(alldone)
+ 
+            ////
+ 
+            NeedlePositionOrig:
+            jmp NeedlePositionCode
+            nop
+            NeedlePositionOrigReturn:
+ 
+            ////
+ 
+            NeedlePositionCode:
+            cmp [Master],1
+            jne DontNeedlePosition
+
+            cmp [WantedNeedle2], 0
+            je perfectstart
+            cmp [WantedNeedle2], 1
+            je dohook
+            jmp doslice
+
+            dohook:
+            mov [WantedNeedle],(float)0.25
+            jmp alldone
+
+            doslice:
+            mov [WantedNeedle],(float)0.75
+            jmp alldone
+
+            perfectstart:
+            pushad
+            pushfd
+            movss [rtmpxmm0], xmm0
+            movss [rtmpxmm1], xmm1
+            movss [rtmpxmm2], xmm2
+            call rndgen
+
+
+            mov ecx, #0         // min value (inclusive)
+            mov edx, #2         // max value (inclusive)
+            sub edx, ecx        // store range in edx
+            cvtsi2ss xmm1, edx  // convert range to float
+            mulss xmm0, xmm1    // multiply rand (0-1) by range
+            cvtsi2ss xmm1, ecx  // convert min to float
+            addss xmm0, xmm1    // add min to multiplied value
+            // xmm0 now contains a float within the given range. Can now cast that to an
+            // int, or leave it as float. Here we will cast to int
+            cvtss2si ecx, xmm0  // convert xmm0 to int and store in ecx
+            cmp ecx, 0
+            je range1
+            cmp ecx, 1
+            je range2
+            jmp range3
+
+            range1:
+            call rndgen
+            mov ecx, (float)0           // min value (inclusive)
+            mov edx, (float)0.005       // max value (inclusive)
+            movd xmm1, edx
+            movd xmm2, ecx
+            subss xmm1, xmm2
+            mulss xmm0, xmm1    // multiply rand (0-1) by range
+            movd xmm1, ecx
+            addss xmm0, xmm1    // add min to multiplied value
+            movss [WantedNeedle], xmm0
+            jmp perfectend
+
+            range2:
+            call rndgen
+            mov ecx, (float)0.495         // min value (inclusive)
+            mov edx, (float)0.505        // max value (inclusive)
+            movd xmm1, edx
+            movd xmm2, ecx
+            subss xmm1, xmm2
+            mulss xmm0, xmm1    // multiply rand (0-1) by range
+            movd xmm1, ecx
+            addss xmm0, xmm1    // add min to multiplied value
+            movss [WantedNeedle], xmm0
+            jmp perfectend
+
+            range3:
+            call rndgen
+            mov ecx, (float)0.985         // min value (inclusive)
+            mov edx, (float)0.99999        // max value (inclusive)
+            movd xmm1, edx
+            movd xmm2, ecx
+            subss xmm1, xmm2
+            mulss xmm0, xmm1    // multiply rand (0-1) by range
+            movd xmm1, ecx
+            addss xmm0, xmm1    // add min to multiplied value
+            movss [WantedNeedle], xmm0
+            jmp perfectend
+
+            perfectend:
+            popfd
+            popad
+            movss xmm0, [rtmpxmm0]
+            movss xmm1, [rtmpxmm1]
+            movss xmm2, [rtmpxmm2]
+
+            alldone:
+			mov esi,[WantedNeedle]
+			mov eax,[ebp-14]
+            jmp NeedlePositionOrigReturn
+ 
+            DontNeedlePosition:
+            mov esi,[edi+edx]
+			mov eax,[ebp-14]
+            jmp NeedlePositionOrigReturn
+			
+			WantedNeedle:
+			dd (float)0
+
+            WantedNeedle2:
+            dd (int)0
+
+			ShootValue:
+			dd (float)0
+
+            rtmpxmm0:
+            dd (float)0
+
+            rtmpxmm1:
+            dd (float)0
+
+            rtmpxmm2:
+            dd (float)0
+			
+            [disable]
+            dealloc(NeedlePositionCode)
+            unregistersymbol(NeedlePositionOrig)
+			unregistersymbol(WantedNeedle)
+            unregistersymbol(WantedNeedle2)
+            NeedlePositionOrig:
+            //mov esi,[edi+edx]
+			//mov eax,[ebp-14]
+            db 8B 34 17 8B 45 EC
+          </AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>81</ID>
+              <Description>"Wanted Needle"</Description>
+              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Perfect
+				1:Hook
+				2:Slice
+			  </DropDownList>
+              <LastState Value="0" RealAddress="01410173"/>
+              <VariableType>4 Bytes</VariableType>
+              <Address>WantedNeedle2</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16</ID>
+          <Description>"Full Accuracy"</Description>
+          <LastState Activated="1"/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>
+			[enable]
+			FullAccuracyTrigger:
+			dd (int)1
+ 
+            [disable]
+			FullAccuracyTrigger:
+			dd (int)0			
+          </AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>17</ID>
+          <Description>"Wind Changer (Only Golden Shot)"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>
+			[enable]
+			alloc(NoWindOffset, 4)
+			registersymbol(NoWindOffset)
+            alloc(NoWindCode, 128)
+
+            aobscan(NoWindOrig, F3 0F 11 8B ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 8B B3 ?? ?? ?? ?? 6B 7D E8 48 89 55 EC 83 EA 37 03 FE 3B FA 0F 83 ?? ?? ?? ?? 6B 55 E8 48 ?? ?? ?? ?? ?? ?? ?? 83 E9 2F 03 D6 89 BB ?? ?? ?? ?? 3B D1 0F 83)
+            registersymbol(NoWindOrig)
+            label(NoWindOrigReturn)
+
+			registersymbol(WantedWind)
+
+			label(Storexmm0)
+			label(Storexmm1)
+			label(WindMultiplier)
+			registersymbol(WindMultiplier)
+
+			NoWindOffset:
+			readmem(NoWindOrig+4, 4)
+
+            ////
+
+            NoWindOrig:
+            jmp NoWindCode
+            nop
+            nop
+            nop
+            NoWindOrigReturn:
+
+            ////
+
+            NoWindCode:
+            cmp [Master],(int)1
+            jne DontNoWind
+			cmp [WindBase],00000000 		// Check if there is a wind stored
+			je DontNoWind					// Else change nothing
+			push eax
+			mov eax,[ClubDataAddress]
+			cmp [eax],(int)57				// Test if club = putter
+			je +62							// If Yes change nothing
+			mov eax,[WantedWind]
+			cmp [RealWind],eax				// Test if multiplier is allready good
+			je +3C							// Jump to mov eax,[WindMultiplier] if good
+			movss [Storexmm0],xmm0			// Save xmm0
+			movss [Storexmm1],xmm1			// Save xmm1
+			movss xmm0,[WantedWind]			// Set Wanted wind in xmm0
+			movss xmm1,[WindBase]			// Set Base Wind in xmm1
+			divss xmm0,xmm1					// Calculate multiplier to have 0.000001 wind (can't go under else it's a flag)
+			movss [WindMultiplier],xmm0		// Save good multiplier
+			movss xmm0,[Storexmm0]			// Restore xmm0
+			movss xmm1,[Storexmm1]			// Restore xmm1
+			mov eax,[WindMultiplier]
+			add ebx,[NoWindOffset]
+			mov [ebx],eax
+			sub ebx,[NoWindOffset]
+            pop eax
+            jmp NoWindOrigReturn
+			pop eax
+			jmp DontNoWind
+
+            DontNoWind:
+			add ebx,[NoWindOffset]
+            movss [ebx],xmm1
+			sub ebx,[NoWindOffset]
+            jmp NoWindOrigReturn
+
+            ////
+
+			WantedWind:
+			dd (float)0.000001
+
+			WindMultiplier:
+			dd (float)1
+
+			Storexmm0:
+			dd 00000000
+
+			Storexmm1:
+			dd 00000000
+
+            [disable]
+            dealloc(NoWindCode)
+			dealloc(NoWindOffset)
+            unregistersymbol(NoWindOrig)
+			unregistersymbol(WantedWind)
+			unregistersymbol(WindMultiplier)
+			unregistersymbol(NoWindOffset)
+
+            NoWindOrig:
+            //movss [ebx+005B4098],xmm1
+            db F3 0F 11 8B
+			readmem(NoWindOffset, 4)
+          </AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>208</ID>
+              <Description>"Wanted Wind"</Description>
+              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0.000001:No Wind
+                1:1 mph
+				2:2 mph
+				3:3 mph
+				4:4 mph
+				5:5 mph
+				6:6 mph
+				7:7 mph
+				8:8 mph
+				9:9	mph
+				10:10 mph
+				11:11 mph
+				12:12 mph
+				13:13 mph
+				14:14 mph
+				15:15 mph
+				16:16 mph
+				17:17 mph
+				18:18 mph
+				19:19 mph
+				20:20 mph
+				21:21 mph
+				22:22 mph
+              </DropDownList>
+              <VariableType>Float</VariableType>
+              <Address>WantedWind</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>18</ID>
+          <Description>"Club Abilities"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>
+			[enable]
+            alloc(UnlockAbilities, 256)
+            label(UnlockAbility1)
+            label(UnlockAbility2)
+            label(UnlockAbility3)
+            label(DontUnlock1)
+            label(DontUnlock2)
+            label(DontUnlock3)
+ 
+            aobscan(Ability1Orig, C7 44 18 38 00 00 00 00 6B 45 E8 48 3B FA 0F 83 ?? ?? ?? ?? 8B 55 EC 83 EA 43 03 C6 C7 44 1F 3C 00 00 00 00 3B C2 0F 83 ?? ?? ?? ?? C7 44 18 40 00 00 00 00 8B 4D F8 8B 45 EC 89 DA 6B 5D E8 48 8B B2 ?? ?? ?? ?? 89 C7 83 EF 3F 03 DE 3B DF 0F 83)
+            registersymbol(Ability1Orig)
+            label(Ability1OrigReturn)
+ 
+            aobscan(Ability2Orig, C7 44 1F 3C 00 00 00 00 3B C2 0F 83 ?? ?? ?? ?? C7 44 18 40 00 00 00 00 8B 4D F8 8B 45 EC 89 DA 6B 5D E8 48 8B B2 ?? ?? ?? ?? 89 C7 83 EF 3F 03 DE 3B DF 0F 83 ?? ?? ?? ?? 8B 5C 13 3C 89 5D EC 83 FB 00 0F 8E ?? ?? ?? ?? 8B B2 ?? ?? ?? ?? 83 C6)
+            registersymbol(Ability2Orig)
+            label(Ability2OrigReturn)
+ 
+            aobscan(Ability3Orig, C7 44 18 40 00 00 00 00 8B 4D F8 8B 45 EC 89 DA 6B 5D E8 48 8B B2 ?? ?? ?? ?? 89 C7 83 EF 3F 03 DE 3B DF 0F 83 ?? ?? ?? ?? 8B 5C 13 3C 89 5D EC 83 FB 00 0F 8E ?? ?? ?? ?? 8B B2 ?? ?? ?? ?? 83 C6 06 3B DE 0F 8D ?? ?? ?? ?? 6B F3 1C 8B BA)
+            registersymbol(Ability3Orig)
+            label(Ability3OrigReturn)
+ 
+            label(SetAbillity1)
+			label(SetAbillity2)
+            label(SetAbillity3)
+			registersymbol(SetAbillity1)
+            registersymbol(SetAbillity2)
+            registersymbol(SetAbillity3)
+
+            ////
+
+            Ability1Orig:
+            jmp UnlockAbility1
+            nop
+            nop
+            nop
+            Ability1OrigReturn:
+
+            ////
+
+            Ability2Orig:
+            jmp UnlockAbility2
+            nop
+            nop
+            nop
+            Ability2OrigReturn:
+
+            ////
+
+            Ability3Orig:
+            jmp UnlockAbility3
+            nop
+            nop
+            nop
+            Ability3OrigReturn:
+
+            ////
+
+            UnlockAbilities:
+            db 90 90 90 90
+
+            //
+
+            UnlockAbility1:
+            cmp [Master],(int)1
+            jne DontUnlock1
+            push ecx
+            mov ecx,[SetAbillity1]
+            mov [eax+ebx+38],ecx
+            mov eax,[SetAbillity2]
+            mov [eax+ebx+3C],eax
+            mov ecx,[SetAbillity3]
+            mov [eax+ebx+40],ecx
+            pop ecx
+            jmp Ability1OrigReturn
+            DontUnlock1:
+            mov [eax+ebx+38],00000000
+            mov [eax+ebx+3C],00000000
+            mov [eax+ebx+40],00000000
+            jmp Ability1OrigReturn
+
+            //
+
+            UnlockAbility2:
+            cmp [Master],(int)1
+            jne DontUnlock2
+            push eax
+            mov ecx,[SetAbillity1]
+            mov [edi+ebx+38],ecx
+            mov eax,[SetAbillity2]
+            mov [edi+ebx+3C],eax
+            mov ecx,[SetAbillity3]
+            mov [edi+ebx+40],ecx
+            pop eax
+            jmp Ability2OrigReturn
+            DontUnlock2:
+            mov [edi+ebx+38],00000000
+            mov [edi+ebx+3C],00000000
+            mov [edi+ebx+40],00000000
+            jmp Ability2OrigReturn
+
+            //
+
+            UnlockAbility3:
+            cmp [Master],(int)1
+            jne DontUnlock3
+            push ecx
+            mov ecx,[SetAbillity1]
+            mov [eax+ebx+38],ecx
+            mov eax,[SetAbillity2]
+            mov [eax+ebx+3C],eax
+            mov ecx,[SetAbillity3]
+            mov [eax+ebx+40],ecx
+            pop ecx
+            jmp Ability3OrigReturn
+            DontUnlock3:
+            mov [eax+ebx+38],00000000
+            mov [eax+ebx+3C],00000000
+            mov [eax+ebx+40],00000000
+            jmp Ability3OrigReturn
+
+            ////
+
+            SetAbillity1:
+            dd (int)0
+ 
+            SetAbillity2:
+            dd (int)5
+ 
+            SetAbillity3:
+            dd (int)0
+ 
+            ////
+ 
+            [disable]
+            dealloc(UnlockAblilities)
+            unregistersymbol(Ability1Orig)
+            unregistersymbol(Ability2Orig)
+            unregistersymbol(Ability3Orig)
+            unregistersymbol(SetAbillity1)
+            unregistersymbol(SetAbillity2)
+            unregistersymbol(SetAbillity3)
+ 
+            Ability1Orig:
+            //mov [eax+ebx+38],00000000
+            db C7 44 18 38 00 00 00 00
+ 
+            Ability2Orig:
+            //mov [edi+ebx+3C],00000000
+            db C7 44 1F 3C 00 00 00 00
+ 
+            Ability3Orig:
+            //mov [eax+ebx+40],00000000
+            db C7 44 18 40 00 00 00 00
+          </AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>71</ID>
+              <Description>"Abillity 1 (No Effect?)"</Description>
+              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0: None
+                1: Sweetspot
+                2: Steady Swing
+                3: Rough and Ready
+                4: Bulldozer
+                5: Green Goo
+                6: Messiah
+                7: Rain Check
+                8: Wind Preview
+                9: Nerves of Steel
+                10: Smash it
+                11: Guide Pulse
+                12: High Roller
+                13: Lawnmower
+                14: Lumberjack
+                15: Fairway Spike
+                16: Wind Resistance 1
+                17: Sidespin 1
+                18: Power 1
+                19: Forgiveness 1
+                20: Overpower Dampening 1
+                21: Wind Resistance 2
+                22: Sidespin 2
+                23: Power 2
+                24: Forgiveness 2
+                25: Overpower Dampening 2
+                26: Wind Resistance 3
+                27: Sidespin 3
+                28: Power 3
+                29: Forgiveness 3
+                30: Overpower Dampening 3
+                31: Fore
+                32: Ball Guide Test
+                33: Power 4
+                34: Power 5
+                35: Wind Resistance 4
+                36: Wind Resistance 5
+              </DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SetAbillity1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>72</ID>
+              <Description>"Abillity 2"</Description>
+              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0: None
+                1: Sweetspot
+                2: Steady Swing
+                3: Rough and Ready
+                4: Bulldozer
+                5: Green Goo
+                6: Messiah
+                7: Rain Check
+                8: Wind Preview
+                9: Nerves of Steel
+                10: Smash it
+                11: Guide Pulse
+                12: High Roller
+                13: Lawnmower
+                14: Lumberjack
+                15: Fairway Spike
+                16: Wind Resistance 1
+                17: Sidespin 1
+                18: Power 1
+                19: Forgiveness 1
+                20: Overpower Dampening 1
+                21: Wind Resistance 2
+                22: Sidespin 2
+                23: Power 2
+                24: Forgiveness 2
+                25: Overpower Dampening 2
+                26: Wind Resistance 3
+                27: Sidespin 3
+                28: Power 3
+                29: Forgiveness 3
+                30: Overpower Dampening 3
+                31: Fore
+                32: Ball Guide Test
+                33: Power 4
+                34: Power 5
+                35: Wind Resistance 4
+                36: Wind Resistance 5
+              </DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SetAbillity2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>73</ID>
+              <Description>"Abillity 3"</Description>
+              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0: None
+                1: Sweetspot
+                2: Steady Swing
+                3: Rough and Ready
+                4: Bulldozer
+                5: Green Goo
+                6: Messiah
+                7: Rain Check
+                8: Wind Preview
+                9: Nerves of Steel
+                10: Smash it
+                11: Guide Pulse
+                12: High Roller
+                13: Lawnmower
+                14: Lumberjack
+                15: Fairway Spike
+                16: Wind Resistance 1
+                17: Sidespin 1
+                18: Power 1
+                19: Forgiveness 1
+                20: Overpower Dampening 1
+                21: Wind Resistance 2
+                22: Sidespin 2
+                23: Power 2
+                24: Forgiveness 2
+                25: Overpower Dampening 2
+                26: Wind Resistance 3
+                27: Sidespin 3
+                28: Power 3
+                29: Forgiveness 3
+                30: Overpower Dampening 3
+                31: Fore
+                32: Ball Guide Test
+                33: Power 4
+                34: Power 5
+                35: Wind Resistance 4
+                36: Wind Resistance 5
+              </DropDownList>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SetAbillity3</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>20</ID>
+          <Description>"Wind Ring Calc"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="1"/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>
+			[enable]
+            WindRingTrigger:
+			dd (int)1
+ 
+            [disable]
+            WindRingTrigger:
+			dd (int)0
+          </AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>91</ID>
+              <Description>"WindRingsWithElevation"</Description>
+              <LastState Value="1.311287403" RealAddress="088F0C45"/>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>WindRings2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>92</ID>
+              <Description>"RealWind"</Description>
+              <LastState Value="1.476999879" RealAddress="088F0C21"/>
+              <VariableType>Float</VariableType>
+              <Address>RealWind</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>93</ID>
+              <Description>"WindRingsBase"</Description>
+              <LastState Value="1.280455112" RealAddress="088F0C25"/>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>WindRings</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>94</ID>
+              <Description>"GapElevation"</Description>
+              <LastState Value="1.998272896" RealAddress="088F0C41"/>
+              <VariableType>Float</VariableType>
+              <Address>GapElevation</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>95</ID>
+              <Description>"CurrentElevation"</Description>
+              <LastState Value="-9.740466118" RealAddress="088F0C39"/>
+              <VariableType>Float</VariableType>
+              <Address>CurrentElevation</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>96</ID>
+              <Description>"AimingElevation"</Description>
+              <LastState Value="-9.78012085" RealAddress="088F0C3D"/>
+              <VariableType>Float</VariableType>
+              <Address>AimingElevation</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
